@@ -4,9 +4,8 @@ from sklearn.ensemble import RandomForestRegressor;
 import matplotlib.pyplot as plt;
 import numpy;
 
-Daily_Gold_Rate = pandas.read_csv('Dates_Gold_Prices.csv');
 
-New_Daily_Gold_Rate = Daily_Gold_Rate.dropna();
+New_Daily_Gold_Rate =  pandas.read_csv('Dates_Gold_Prices.csv');
 
 features = ['Year', 'Month', 'Day'];
 
@@ -20,7 +19,7 @@ Reggressor = RandomForestRegressor(n_estimators = 100);
 Reggressor.fit(X_Train, y_train);
 
 
-x_plot = range(len(X_Test));
+x_plot = range(len(New_Daily_Gold_Rate['Date']));
 
 plt.xticks(x_plot, New_Daily_Gold_Rate['Date']);
 
