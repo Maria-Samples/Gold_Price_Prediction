@@ -2,9 +2,9 @@ import pandas;
 from sklearn.model_selection import train_test_split;
 from sklearn.ensemble import RandomForestRegressor;
 
-New_Daily_Gold_Rate =  pandas.read_csv('Dates_Gold_Prices.csv');
+New_Daily_Gold_Rate =  pandas.read_csv('Data_Price_Gold_Months.csv');
 
-features = ['Year', 'Month', 'Day', 'EUR'];
+features = ['Year', 'Month'];
 
 X = New_Daily_Gold_Rate[features];
 
@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 import matplotlib;
 import numpy as np;
 matplotlib.use('svg');
-xpoints = X_Test['Year'] + X_Test['Month'] + X_Test['Day'];
+xpoints = X_Test['Year'] + X_Test['Month'];
 ypoints = np.array(y_pred);
 
 print(y_pred);
@@ -35,13 +35,9 @@ Graph.set_figwidth(10);
 
 plt.plot(xpoints, ypoints, 'o');
 
-plt.xlabel("test prices");
-
-plt.ylabel("predicted prices");
-
 plt.savefig('graph.svg');
 
-xpoints = X_Test['Year'] + X_Test['Month'] + X_Test['Day'];
+xpoints = X_Test['Year'] + X_Test['Month'];
 ypoints = np.array(y_test);
 
 Graph = plt.figure();
@@ -49,10 +45,6 @@ Graph.set_figheight(10);
 Graph.set_figwidth(10);
 
 plt.plot(xpoints, ypoints, 'o');
-
-plt.xlabel("test prices");
-
-plt.ylabel("predicted prices");
 
 plt.savefig('graph2.svg');
 
