@@ -10,7 +10,7 @@ X = New_Daily_Gold_Rate[features];
 
 y = New_Daily_Gold_Rate['#VALUE!'];
 
-X_Train, X_Test, y_train, y_test = train_test_split(X, y, train_size = 0.8, shuffle=False, random_state=42);
+X_Train, X_Test, y_train, y_test = train_test_split(X, y, train_size = 0.9, shuffle=False, random_state=42);
 
 Reggressor = RandomForestRegressor(n_estimators = 100, max_features='sqrt', random_state=42);
 Reggressor.fit(X_Train, y_train);
