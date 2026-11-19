@@ -8,11 +8,11 @@ features = ['Year', 'Month'];
 
 X = New_Daily_Gold_Rate[features];
 
-y = New_Daily_Gold_Rate['USD'];
+y = New_Daily_Gold_Rate['#VALUE!'];
 
-X_Train, X_Test, y_train, y_test = train_test_split(X, y, train_size = 0.7, shuffle=False, random_state=42);
+X_Train, X_Test, y_train, y_test = train_test_split(X, y, train_size = 0.8, shuffle=False, random_state=42);
 
-Reggressor = RandomForestRegressor(n_estimators = 100, random_state=42);
+Reggressor = RandomForestRegressor(n_estimators = 100, max_features='sqrt', random_state=42);
 Reggressor.fit(X_Train, y_train);
 
 
@@ -27,7 +27,7 @@ xpoints = X_Test['Year'] + X_Test['Month'];
 ypoints = np.array(y_pred);
 
 print(y_pred);
-print(y_test.shape);
+print(X_Test['Year']);
 
 Graph = plt.figure();
 Graph.set_figheight(10);
@@ -47,4 +47,3 @@ Graph.set_figwidth(10);
 plt.plot(xpoints, ypoints, 'o');
 
 plt.savefig('graph2.svg');
-
